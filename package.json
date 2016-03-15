@@ -1,0 +1,19 @@
+{
+  "name": "react-native-z-index",
+  "version": "0.0.1",
+  "description": "Adds z-index support to react-native as a component.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ftufek/react-native-z-index.git"
+  },
+  "author": "Furkan Tufekci",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ftufek/react-native-z-index/issues"
+  },
+  "homepage": "https://github.com/ftufek/react-native-z-index#readme"
+}
