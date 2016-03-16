@@ -30,6 +30,11 @@ class ZindexWrapper extends Component {
   }
 
   addToLayer(zIndex, component, x, y, width, height) {
+    console.log('measurement');
+    console.log(x);
+    console.log(y);
+    console.log(width);
+    console.log(height);
     const {layers} = this.state;
     if (zIndex <= 0 || zIndex > 10) {
       // TODO(ftufek): document this limitation and investigate
@@ -67,6 +72,7 @@ class ZindexWrapper extends Component {
             'left': cLayer.x,
             'width': cLayer.width,
             'height': cLayer.height,
+            'backgroundColor': 'rgba(0,0,0,0.2)',
           };
           layerComponents.push(
             <View style={styleobj}>
@@ -91,14 +97,6 @@ class ZindexWrapper extends Component {
 }
 
 class ZindexView extends Component {
-  componentDidMount() {
-    //this.context.addToZindex(1, this.props.children,React.findNodeHandle(this.refs.vref));
-    //UIManager.measure(React.findNodeHandle(this.refs.vref), this.logMeasure);
-    //this.props.children.measure(this.logMeasure);
-    //debugger;
-    //this.refs.vref.measure([>React.findNodeHandle(this.refs.vref),<]this.logMeasure);
-  }
-
   logMeasure(ox, oy, width, height, px, py) {
     console.log("ox: " + ox);
     console.log("oy: " + oy);
@@ -114,8 +112,9 @@ class ZindexView extends Component {
   }
 
   render() {
+    const {style} = this.props;
     return (
-      <View style={styles.zindex} ref="vref" onLayout={
+      <View {...this.props} children={[]} ref="vref" onLayout={
         (event) => {
           this.updateLayoutMeasurements();
         }
@@ -142,14 +141,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     backgroundColor: 'rgba(255, 0, 0, 0.2)',
-  },
-  zindex: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: 'black',
   },
 });
 
